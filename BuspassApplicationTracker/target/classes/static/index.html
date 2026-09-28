@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bus Pass Application Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Bus Pass Application Tracker</h1>
+    <p>Student Bus Pass Management System</p>
+</header>
+
+<nav>
+    <button onclick="showSection('studentSection')">
+        Student
+    </button>
+
+    <button onclick="showSection('applicationSection')">
+        My Application
+    </button>
+
+    <button onclick="showSection('adminSection')">
+        Admin
+    </button>
+</nav>
+
+
+<main>
+
+    <!-- ================= STUDENT ================= -->
+
+    <section id="studentSection">
+
+        <h2>Student Registration</h2>
+
+        <form id="studentForm">
+
+            <label>Name</label>
+            <input type="text" id="studentName" required>
+
+            <label>Email</label>
+            <input type="email" id="studentEmail" required>
+
+            <label>Phone</label>
+            <input type="text" id="studentPhone" required>
+
+            <button type="submit">
+                Register Student
+            </button>
+
+        </form>
+
+        <h2>Students</h2>
+
+        <div id="studentList"></div>
+
+    </section>
+
+
+    <!-- ================= STUDENT APPLICATION ================= -->
+
+    <section id="applicationSection" style="display:none;">
+
+        <h2>Bus Pass Application</h2>
+
+        <form id="applicationForm">
+
+            <label>Student ID</label>
+            <input type="number" id="applicationStudentId" required>
+
+            <label>Route ID</label>
+            <input type="number" id="applicationRouteId" required>
+
+            <label>Boarding Point</label>
+            <input type="text" id="applicationBoardingPoint" required>
+
+            <label>Photo Reference</label>
+            <input type="text" id="photoReference" required>
+
+            <button type="submit">
+                Submit Application
+            </button>
+
+        </form>
+
+        <h2>My Applications</h2>
+
+        <div id="applicationList"></div>
+
+    </section>
+
+
+    <!-- ================= ADMIN ================= -->
+
+    <section id="adminSection" style="display:none;">
+
+        <h2>Admin Panel</h2>
+
+        <div class="admin-menu">
+
+            <button onclick="showAdminSection('routeAdminSection')">
+                Manage Bus Routes
+            </button>
+
+            <button onclick="showAdminSection('applicationAdminSection')">
+                Applications
+            </button>
+
+            <button onclick="showAdminSection('expiringAdminSection')">
+                Expiring Passes
+            </button>
+
+        </div>
+
+
+        <!-- ADMIN - BUS ROUTES -->
+
+        <div id="routeAdminSection">
+
+            <h2>Manage Bus Routes</h2>
+
+            <form id="routeForm">
+
+                <label>Route Name</label>
+                <input type="text" id="routeName" required>
+
+                <label>Boarding Point</label>
+                <input type="text" id="routeBoardingPoint" required>
+
+                <label>Destination</label>
+                <input type="text" id="destination" required>
+
+                <button type="submit">
+                    Add Route
+                </button>
+
+            </form>
+
+            <h2>Available Routes</h2>
+
+            <div id="routeList"></div>
+
+        </div>
+
+
+        <!-- ADMIN - APPLICATIONS -->
+
+        <div id="applicationAdminSection" style="display:none;">
+
+            <h2>Student Applications</h2>
+
+            <div id="adminApplicationList"></div>
+
+        </div>
+
+
+        <!-- ADMIN - EXPIRING PASSES -->
+
+        <div id="expiringAdminSection" style="display:none;">
+
+            <h2>Passes Expiring Within 30 Days</h2>
+
+            <button onclick="loadExpiringApplications()">
+                Check Expiring Passes
+            </button>
+
+            <div id="expiringList"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
